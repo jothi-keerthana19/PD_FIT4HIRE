@@ -1,110 +1,197 @@
-# Fit4Hire - AI Resume Analyzer
 
-## Introduction
-Fit4Hire is an AI-powered resume analysis platform that helps job seekers optimize their resumes for Applicant Tracking Systems (ATS). The platform specializes in analyzing resumes for five key tech roles, providing instant feedback and actionable suggestions for improvement.
 
-## Features
-- **ATS Compatibility Analysis**: Evaluates resumes using a sophisticated scoring system
-- **Role-Specific Analysis**: Specialized evaluation for Software Developer, Data Scientist, UX/UI Designer, Frontend Developer, and Product Manager roles
-- **Multi-Format Support**: Processes PDF and DOCX files
-- **Detailed Feedback**: Provides comprehensive analysis of resume structure, keywords, and skills
-- **Smart Scoring**: Weighted evaluation system (Keywords: 30%, Skills: 50%, Structure: 20%)
+```markdown
+# 🎯 Fit4Hire - AI Resume Analyzer
 
-## Tech Stack
+Fit4Hire is an intelligent resume analysis platform built to optimize resumes for modern **Applicant Tracking Systems (ATS)**. Designed specifically for five key tech roles, it offers instant feedback, smart suggestions, and scoring mechanisms to increase a candidate's chances of getting hired.
+
+---
+
+## 🧠 Features
+
+- **📊 ATS Compatibility Analysis**
+  - Keyword Analysis (30%)
+  - Skills Assessment (50%)
+  - Structure Evaluation (20%)
+
+- **🎯 Role-Specific Optimization**
+  - Software Developer
+  - Data Scientist
+  - UX/UI Designer
+  - Frontend Developer
+  - Product Manager
+
+- **📝 Document Support**
+  - PDF & DOCX formats
+  - Up to 10MB file size
+
+- **💡 Smart Feedback System**
+  - Strength Identification
+  - Weakness Detection
+  - Missing Skill Alerts
+  - Layout & Formatting Suggestions
+
+---
+
+## 🛠️ Tech Stack
+
 ### Backend
 - Python 3.x
-- Flask (Web Framework)
-- Groq (AI Model Integration)
-- PyPDF2 & python-docx (Document Processing)
-- pytesseract (OCR Capabilities)
+- Flask
+- Groq API
+- PyPDF2
+- python-docx
+- pytesseract
 
 ### Frontend
 - React.js
-- Material-UI
+- Material UI
 - Axios
 
-## Installation Guide
+---
 
-### Prerequisites
+## 📁 Project Structure
+
+```
+F4F/
+├── backend/
+│   ├── static/
+│   │   ├── uploads/       # Uploaded resumes
+│   │   └── assets/        # Static assets
+│   ├── templates/
+│   │   └── index.html     # Backend template
+│   ├── Fit.py             # Resume analysis engine
+│   ├── app.py             # Flask application entry
+│   ├── config.py          # App configuration
+│   └── requirements.txt   # Python dependencies
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── assets/        # Frontend assets
+│   ├── src/
+│   │   ├── components/    # Reusable React components
+│   │   ├── pages/         # Page components
+│   │   ├── services/      # API services
+│   │   ├── styles/        # CSS styles
+│   │   ├── utils/         # Helper functions
+│   │   └── App.js         # App entry point
+│   ├── package.json
+│   └── README.md          # Frontend documentation
+└── README.md              # Project documentation
+```
+
+---
+
+## 🚀 Getting Started
+
+### 🔧 Prerequisites
 - Python 3.x
-- Node.js and npm
+- Node.js + npm
 - Tesseract OCR
 - Groq API Key
 
-### Backend Setup
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/fit4hire.git
-cd fit4hire
-```
+---
 
-2. Create and activate virtual environment
+### ⚙️ Backend Setup
+
 ```bash
+cd F4F/backend
 python -m venv venv
 .\venv\Scripts\activate
-```
-
-3. Install dependencies
-```bash
-cd backend
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables
-Create a `.env` file in the backend directory:
-```plaintext
-GROQ_API_KEY=your_groq_api_key
+Create a `.env` file with:
+```
+GROQ_API_KEY=your_key
 FLASK_APP=app.py
 FLASK_ENV=development
 ```
 
-5. Run the backend server
+Then run the server:
 ```bash
 flask run
 ```
 
-### Frontend Setup
-1. Navigate to frontend directory
-```bash
-cd ../frontend
-```
+---
 
-2. Install dependencies
+### 🌐 Frontend Setup
+
 ```bash
+cd F4F/frontend
 npm install
-```
-
-3. Start the development server
-```bash
 npm start
 ```
 
-## Usage
-1. Access the application at `http://localhost:3000`
-2. Upload a resume in PDF or DOCX format
-3. Select the target job role
-4. Click "Analyze" to receive detailed feedback
+---
 
-## API Endpoints
-- `POST /api/analyze`: Analyze resume
-- `GET /api/roles`: Get available job roles
-- `POST /api/feedback`: Submit feedback
+## 📱 How It Works
 
-## Contributing
+1. **Upload Your Resume**  
+   → Upload a PDF or DOCX file under 10MB
+
+2. **Select Desired Role**  
+   → Choose from 5 pre-defined job categories
+
+3. **Get Instant Feedback**  
+   → ATS score + keyword analysis + structure breakdown
+
+4. **Apply Suggestions**  
+   → Receive actionable tips for resume improvement
+
+---
+
+## ⚙️ Configuration
+
+### Backend
+- `.env` for environment variables
+- `config.py` for file upload settings
+- Groq API settings in `Fit.py`
+
+### Frontend
+- `.env` for API endpoint setup
+- Customize theme via `src/styles`
+- Adjust config in `src/config`
+
+---
+
+## 🧪 Running Tests
+
+```bash
+# Backend tests
+cd backend
+python -m pytest
+
+# Frontend tests
+cd frontend
+npm test
+```
+
+---
+
+## 🧹 Code Quality
+
+- Backend: **PEP 8**
+- Frontend: **ESLint + Prettier**
+
+---
+
+## 🤝 Contributing
+
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Commit and push your changes
+4. Create a Pull Request
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contact
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
-Project Link: [https://github.com/yourusername/fit4hire](https://github.com/yourusername/fit4hire)
+---
 
-## Acknowledgments
-- Groq API for AI capabilities
-- Tesseract OCR for image processing
-- All contributors who have helped this project grow
+
+## 📞 Support
+
+- GitHub Issues: [Submit Here](https://github.com/yourusername/fit4hire/issues)  
+- Email: support@fit4hire.com
+
+---
+
+Made with ❤️ by **Team Fit4Hire**
