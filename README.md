@@ -1,5 +1,13 @@
 # Fit4Hire - AI Resume Analyzer 🎯
 
+
+
+# Fit4Hire - AI Resume Analyzer 🎯
+
+## Overview
+Fit4Hire is an intelligent resume analysis platform that helps optimize resumes for ATS systems. Our platform specializes in analyzing resumes for five key tech roles, providing instant feedback and actionable suggestions for improvement.
+
+
 ## Project Structure
 ```
 d:\fitvss\F4F\
@@ -29,12 +37,7 @@ d:\fitvss\F4F\
 └── README.md           # Main project documentation
 ```
 
-# README.md Content
 
-# Fit4Hire - AI Resume Analyzer 🎯
-
-## Overview
-Fit4Hire is an intelligent resume analysis platform that helps optimize resumes for ATS systems. Our platform specializes in analyzing resumes for five key tech roles, providing instant feedback and actionable suggestions for improvement.
 
 ## ✨ Key Features
 - 📊 **ATS Compatibility Analysis**
