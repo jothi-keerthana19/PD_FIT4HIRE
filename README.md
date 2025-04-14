@@ -1,162 +1,149 @@
+# Fit4Hire - AI Resume Analyzer 🎯
 
+## Project Structure
+```
+d:\fitvss\F4F\
+├── backend/
+│   ├── static/
+│   │   ├── uploads/     # Temporary storage for uploaded resumes
+│   │   └── assets/      # Static assets
+│   ├── templates/
+│   │   └── index.html   # Backend template
+│   ├── Fit.py          # Core analysis engine
+│   ├── app.py          # Flask application
+│   ├── config.py       # Configuration settings
+│   └── requirements.txt # Python dependencies
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── assets/     # Frontend static assets
+│   ├── src/
+│   │   ├── components/ # React components
+│   │   ├── pages/      # Page components
+│   │   ├── services/   # API services
+│   │   ├── styles/     # CSS styles
+│   │   ├── utils/      # Utility functions
+│   │   └── App.js      # Main React component
+│   ├── package.json
+│   └── README.md       # Frontend documentation
+└── README.md           # Main project documentation
+```
 
-```markdown
-# 🎯 Fit4Hire - AI Resume Analyzer
+# README.md Content
 
-Fit4Hire is an intelligent resume analysis platform built to optimize resumes for modern **Applicant Tracking Systems (ATS)**. Designed specifically for five key tech roles, it offers instant feedback, smart suggestions, and scoring mechanisms to increase a candidate's chances of getting hired.
+# Fit4Hire - AI Resume Analyzer 🎯
 
----
+## Overview
+Fit4Hire is an intelligent resume analysis platform that helps optimize resumes for ATS systems. Our platform specializes in analyzing resumes for five key tech roles, providing instant feedback and actionable suggestions for improvement.
 
-## 🧠 Features
-
-- **📊 ATS Compatibility Analysis**
-  - Keyword Analysis (30%)
-  - Skills Assessment (50%)
-  - Structure Evaluation (20%)
-
-- **🎯 Role-Specific Optimization**
+## ✨ Key Features
+- 📊 **ATS Compatibility Analysis**
+  - Keyword analysis (30% weight)
+  - Skills assessment (50% weight)
+  - Structure evaluation (20% weight)
+- 🎯 **Role-Specific Analysis** for:
   - Software Developer
   - Data Scientist
   - UX/UI Designer
   - Frontend Developer
   - Product Manager
-
-- **📝 Document Support**
-  - PDF & DOCX formats
-  - Up to 10MB file size
-
-- **💡 Smart Feedback System**
-  - Strength Identification
-  - Weakness Detection
-  - Missing Skill Alerts
-  - Layout & Formatting Suggestions
-
----
+- 📝 **Document Support**
+  - PDF files
+  - DOCX files
+- 💡 **Smart Feedback System**
+  - Strength identification
+  - Weakness analysis
+  - Missing skills detection
+  - Structure recommendations
 
 ## 🛠️ Tech Stack
+- **Backend**
+  - Python 3.x
+  - Flask
+  - Groq API
+  - PyPDF2
+  - python-docx
+  - pytesseract
 
-### Backend
-- Python 3.x
-- Flask
-- Groq API
-- PyPDF2
-- python-docx
-- pytesseract
-
-### Frontend
-- React.js
-- Material UI
-- Axios
-
----
-
-## 📁 Project Structure
-
-```
-F4F/
-├── backend/
-│   ├── static/
-│   │   ├── uploads/       # Uploaded resumes
-│   │   └── assets/        # Static assets
-│   ├── templates/
-│   │   └── index.html     # Backend template
-│   ├── Fit.py             # Resume analysis engine
-│   ├── app.py             # Flask application entry
-│   ├── config.py          # App configuration
-│   └── requirements.txt   # Python dependencies
-├── frontend/
-│   ├── public/
-│   │   ├── index.html
-│   │   └── assets/        # Frontend assets
-│   ├── src/
-│   │   ├── components/    # Reusable React components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API services
-│   │   ├── styles/        # CSS styles
-│   │   ├── utils/         # Helper functions
-│   │   └── App.js         # App entry point
-│   ├── package.json
-│   └── README.md          # Frontend documentation
-└── README.md              # Project documentation
-```
-
----
+- **Frontend**
+  - React.js
+  - Material-UI
+  - Axios
 
 ## 🚀 Getting Started
 
-### 🔧 Prerequisites
-- Python 3.x
-- Node.js + npm
-- Tesseract OCR
-- Groq API Key
+### Prerequisites
+1. Install Python 3.x
+2. Install Node.js and npm
+3. Install Tesseract OCR
+4. Get Groq API key
 
----
-
-### ⚙️ Backend Setup
-
+### Backend Setup
 ```bash
-cd F4F/backend
+# Navigate to backend directory
+cd d:\fitvss\F4F\backend
+
+# Create virtual environment
 python -m venv venv
 .\venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-```
 
-Create a `.env` file with:
-```
-GROQ_API_KEY=your_key
-FLASK_APP=app.py
-FLASK_ENV=development
-```
+# Create .env file
+# Add the following content:
+# GROQ_API_KEY=your_key
+# FLASK_APP=app.py
+# FLASK_ENV=development
 
-Then run the server:
-```bash
+# Start Flask server
 flask run
 ```
 
----
-
-### 🌐 Frontend Setup
-
+### Frontend Setup
 ```bash
-cd F4F/frontend
+# Navigate to frontend directory
+cd d:\fitvss\F4F\frontend
+
+# Install dependencies
 npm install
+
+# Start development server
 npm start
 ```
 
----
+## 📱 Usage Guide
 
-## 📱 How It Works
+1. **Upload Resume**
+   - Support for PDF/DOCX formats
+   - File size limit: 10MB
 
-1. **Upload Your Resume**  
-   → Upload a PDF or DOCX file under 10MB
+2. **Select Job Role**
+   - Choose from 5 specialized tech roles
+   - Custom skill requirements option
 
-2. **Select Desired Role**  
-   → Choose from 5 pre-defined job categories
+3. **View Analysis**
+   - Overall ATS score
+   - Keyword match analysis
+   - Skills assessment
+   - Structure evaluation
+   - Improvement suggestions
 
-3. **Get Instant Feedback**  
-   → ATS score + keyword analysis + structure breakdown
+## 🔧 Configuration
 
-4. **Apply Suggestions**  
-   → Receive actionable tips for resume improvement
+### Backend Configuration
+- Set environment variables in `.env`
+- Adjust file upload settings in `config.py`
+- Configure Groq API settings
 
----
+### Frontend Configuration
+- API endpoint configuration in `.env`
+- Theme customization in `src/styles`
+- Component settings in `src/config`
 
-## ⚙️ Configuration
+## 📈 Development
 
-### Backend
-- `.env` for environment variables
-- `config.py` for file upload settings
-- Groq API settings in `Fit.py`
-
-### Frontend
-- `.env` for API endpoint setup
-- Customize theme via `src/styles`
-- Adjust config in `src/config`
-
----
-
-## 🧪 Running Tests
-
+### Running Tests
 ```bash
 # Backend tests
 cd backend
@@ -167,31 +154,29 @@ cd frontend
 npm test
 ```
 
----
-
-## 🧹 Code Quality
-
-- Backend: **PEP 8**
-- Frontend: **ESLint + Prettier**
-
----
+### Code Style
+- Backend: PEP 8
+- Frontend: ESLint + Prettier
 
 ## 🤝 Contributing
-
 1. Fork the repository
-2. Create a feature branch
-3. Commit and push your changes
-4. Create a Pull Request
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
 
+## 📄 License
+MIT License - see [LICENSE](LICENSE)
 
----
-
+## 👥 Team
+- [Your Name] - Project Lead
+- [Team Member] - Backend Developer
+- [Team Member] - Frontend Developer
+- [Team Member] - UI/UX Designer
 
 ## 📞 Support
-
-- GitHub Issues: [Submit Here](https://github.com/yourusername/fit4hire/issues)  
+- GitHub Issues: [Create Issue](https://github.com/yourusername/fit4hire/issues)
 - Email: support@fit4hire.com
 
 ---
-
-Made with ❤️ by **Team Fit4Hire**
+Made with ❤️ by Team Fit4Hire
