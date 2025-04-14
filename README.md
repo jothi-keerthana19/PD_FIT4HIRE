@@ -1,9 +1,5 @@
 # Fit4Hire - AI Resume Analyzer 🎯
 
-
-
-# Fit4Hire - AI Resume Analyzer 🎯
-
 ## Overview
 Fit4Hire is an intelligent resume analysis platform that helps optimize resumes for ATS systems. Our platform specializes in analyzing resumes for five key tech roles, providing instant feedback and actionable suggestions for improvement.
 
@@ -168,14 +164,6 @@ npm test
 4. Push to branch
 5. Create Pull Request
 
-## 📄 License
-MIT License - see [LICENSE](LICENSE)
-
-## 👥 Team
-- [Your Name] - Project Lead
-- [Team Member] - Backend Developer
-- [Team Member] - Frontend Developer
-- [Team Member] - UI/UX Designer
 
 ## 📞 Support
 - GitHub Issues: [Create Issue](https://github.com/yourusername/fit4hire/issues)
