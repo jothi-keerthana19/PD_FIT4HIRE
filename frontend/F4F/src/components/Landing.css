@@ -1,0 +1,658 @@
+:root {
+  --background: #0a192f;  /* Dark navy background */
+  --foreground: #e6f1ff;  /* Bright text for contrast */
+  --primary: #64ffda;     /* Bright teal accent */
+  --primary-hover: #9fffeb; /* Lighter teal for hover */
+  --card-bg: #112240;     /* Slightly lighter navy for cards */
+  --text-secondary: #8892b0; /* Muted blue-grey for secondary text */
+}
+
+.landing {
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, rgba(100, 255, 218, 0.1), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(100, 255, 218, 0.08) 0%,
+    transparent 70%
+  );
+  animation: rotate 20s linear infinite;
+}
+
+/* Add these styles for the enhanced neural network effect */
+.neural-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.neural-node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.7);
+  opacity: 0.6;
+  animation: pulse 4s infinite, float 6s infinite;
+  transition: transform 0.5s ease;
+}
+
+.neural-node:nth-child(odd) {
+  background-color: #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  animation-delay: 2s;
+}
+
+/* You have duplicate @keyframes for float and pulse - I'll remove one set */
+.neural-node:nth-child(3n) {
+  background-color: #00ccff;
+  box-shadow: 0 0 15px rgba(0, 204, 255, 0.7);
+  animation-delay: 1s;
+}
+
+.neural-connection {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.3), transparent);
+  opacity: 0.3;
+  animation: pulse 10s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(0px) translateX(10px); }
+  75% { transform: translateY(10px) translateX(5px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.2; }
+}
+
+/* Hero content animation */
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Remove the duplicate keyframes below */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+/* Hero content animation */
+.hero-content {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Enhanced button glow effects */
+.cta-button {
+  transition: all 0.3s ease, box-shadow 0.5s ease;
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.5), 0 0 40px rgba(100, 255, 218, 0.2);
+  transform: translateY(-3px);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+/* Hero content animation */
+.hero-content {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Rest of your existing CSS remains unchanged */
+.landing-container {
+  position: relative;
+  z-index: 2;
+}
+
+.landing-content {
+  background: rgba(17, 34, 64, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.features, .how-it-works, .benefits, .cta-section {
+  position: relative;
+  z-index: 2;
+  background: rgba(17, 34, 64, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.feature-card {
+  background: rgba(10, 25, 47, 0.9);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 45px rgba(100, 255, 218, 0.15);
+}
+
+.steps {
+  background: transparent;
+  border: none;
+}
+
+.step {
+  background: rgba(17, 34, 64, 0.9);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.benefits-content {
+  background: rgba(10, 25, 47, 0.9);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section {
+  background: none;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content {
+  background: rgba(17, 34, 64, 0.98);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.features {
+  padding: 4rem 2rem;
+  background: var(--background);
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 6px 12px rgba(100, 255, 218, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 4rem 2rem;
+  background-color: rgba(147, 51, 234, 0.05);
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+}
+
+.step-number {
+  background: linear-gradient(135deg, var(--primary), #4ad9b9);
+  color: var(--background);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg,
+    rgba(100, 255, 218, 0.05) 0%,
+    rgba(16, 36, 69, 0.05) 100%
+  );
+}
+
+.benefits-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
+
+.benefits-list li {
+  margin: 1rem auto;
+  color: var(--text-secondary);
+  position: relative;
+  width: fit-content;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.benefits-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.benefits-list li:hover {
+  transform: translateX(10px);
+  color: var(--foreground);
+}
+
+/* CTA Buttons */
+.cta-button {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  color: var(--primary);
+  text-decoration: none;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  background: var(--primary);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  transition: top 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  color: var(--background);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+.cta-button:hover::before {
+  top: 0;
+}
+
+.secondary-cta {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  background-color: transparent;
+  color: var(--foreground);
+  text-decoration: none;
+  border: 2px solid var(--text-secondary);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.secondary-cta::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.secondary-cta:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.secondary-cta:hover::after {
+  width: 100%;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(to top, rgba(100, 255, 218, 0.1), transparent);
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: var(--text-secondary);
+  margin: 1.5rem 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+/* Find the last part of your CSS file and fix the extra closing brace */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-button,
+  .secondary-cta {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+} 
+/* Remove the extra closing brace that was here
+
+/* Contributors Section Styles */
+.contributors-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(17, 25, 40, 0.8), rgba(11, 17, 33, 0.9));
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.contributors-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(100, 255, 218, 0.15), transparent 70%);
+  z-index: 0;
+}
+
+.contributors-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contributors-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--foreground);
+}
+
+.contributors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.contributor-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.contributor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary);
+}
+
+.contributor-image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+  background-color: var(--card-bg); /* Added background color */
+  display: flex; /* Added to center image */
+  align-items: center; /* Added to center image */
+  justify-content: center; /* Added to center image */
+}
+
+.contributor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block; /* Ensures proper image display */
+}
+
+.contributor-card:hover .contributor-image {
+  transform: scale(1.1);
+}
+
+.contributor-name {
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contributor-role {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.contributor-bio {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.contributor-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  color: var(--background);
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments for contributors section */
+@media (max-width: 768px) {
+  .contributors-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contributor-card {
+    padding: 1.5rem;
+  }
+  
+  .contributor-image-container {
+    width: 100px;
+    height: 100px;
+  }
+}

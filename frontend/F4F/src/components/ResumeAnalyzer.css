@@ -1,0 +1,962 @@
+:root {
+  --background: #0B0014;          /* Deep black with slight purple tint */
+  --foreground: #ffffff;          /* Pure white text */
+  --primary: #9333EA;            /* Main purple */
+  --primary-glow: #A855F7;       /* Lighter purple for glow */
+  --secondary-purple: #7928CA;    /* Darker purple for depth */
+  --input-bg: #1A1625;           /* Dark purple-black for inputs */
+  --card-bg: #15121A;            /* Slightly lighter background for cards */
+  --border-color: rgba(147, 51, 234, 0.3);
+  --neon-glow: 0 0 15px rgba(147, 51, 234, 0.4);
+  --intense-glow: 0 0 20px rgba(147, 51, 234, 0.6);
+}
+
+.analyzer-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.resume-analyzer {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+}
+
+.resume-analyzer {
+  /* Clean up the duplicate .resume-analyzer declarations */
+  .resume-analyzer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 4rem;
+    background: rgba(11, 0, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.15);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  /* Standardize form group sizing and spacing */
+  .form-group {
+    margin-bottom: 3rem;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Standardize all form elements */
+  .custom-file-input,
+  .form-group select,
+  .custom-skills-input,
+  .selected-skills,
+  .skills-select,
+  button[type="submit"] {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0.5rem auto;
+    border-radius: 15px;
+  }
+  
+  /* Increase input heights and padding */
+  .form-group input,
+  .form-group select,
+  .skills-select {
+    width: 100%;
+    padding: 1.8rem 2rem;
+    min-height: 70px;
+    font-size: 1.2rem;
+    background: linear-gradient(to right, rgba(147, 51, 234, 0.05), rgba(147, 51, 234, 0.1));
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(147, 51, 234, 0.1);
+  }
+  
+  /* Make file upload area larger */
+  /* Fix for the file upload box width */
+  .file-input-button {
+    width: 100%;
+    max-width: 800px; /* Reduced from 1000px */
+    min-height: 150px;
+    padding: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* Enhance submit button */
+  button[type="submit"] {
+    padding: 2rem;
+    min-height: 80px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    max-width: 1000px;
+  }
+  
+  /* Adjust skill input area */
+  .custom-skills-input {
+    height: 70px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-input {
+    padding: 1.8rem 2rem;
+    height: 70px;
+    font-size: 1.2rem;
+  }
+  
+  .add-skill-btn {
+    min-width: 70px;
+    height: 70px;
+  }
+}
+
+.resume-analyzer {
+  max-width: 1000px;
+  padding: 3rem 4rem; /* Balanced padding */
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Consistent spacing between children */
+}
+
+.resume-analyzer h1 {
+  margin-bottom: 1.5rem; /* Reduced from 3rem */
+}
+
+.form-group {
+  margin: 0 auto 2rem; /* Vertical rhythm */
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.form-group label {
+  justify-content: flex-start; /* Left alignment */
+  text-align: left;
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+/* Unified input styling */
+.form-group input,
+.form-group select,
+.skills-select,
+.file-input-button,
+.custom-skills-input {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  min-height: 60px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+.file-input-button {
+  min-height: 140px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+button[type="submit"] {
+  margin: 2rem auto 0;
+  padding: 1.5rem 3rem;
+  min-height: 70px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Skill tags container */
+.selected-skills {
+  margin-top: 1.2rem;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-analyzer {
+    padding: 2rem;
+    margin: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .skills-select {
+    padding: 1rem 1.5rem;
+    min-height: 55px;
+  }
+  
+  .file-input-button {
+    min-height: 120px;
+    padding: 1.5rem;
+  }
+}
+
+.resume-analyzer h1 {
+  color: var(--primary);
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  color: var(--primary);
+  font-size: 2.8rem;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { 
+    opacity: 1;
+    text-shadow: 0 0 10px var(--primary-glow);
+  }
+  50% { 
+    opacity: 0.8;
+    text-shadow: 0 0 20px var(--primary);
+  }
+}
+
+.form-group {
+  margin-bottom: 2.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;  /* Increased from 800px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-file-input,
+.form-group select,
+.custom-skills-input,
+.selected-skills,
+.skills-select,
+button[type="submit"] {
+  width: 100%;
+  max-width: 1000px;  /* Increased from 800px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button[type="submit"] {
+  width: 100%;
+  max-width: 800px;  /* Increased from 600px */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 1.2rem;   /* Adjusted padding */
+}
+
+.form-group input,
+.form-group select,
+.skills-select {
+  width: 100%;
+  padding: 1rem 1.5rem;  /* Adjusted horizontal padding */
+  min-height: 50px;      /* Reduced height */
+  font-size: 1.1rem;
+}
+
+.file-input-button {
+  padding: 2rem;         /* Reduced padding */
+  min-height: 100px;     /* Reduced height */
+  width: 100%;
+}
+
+.custom-skills-input {
+  height: 50px;          /* Reduced height */
+  width: 100%;
+}
+
+.skill-input {
+  padding: 1rem 1.5rem; /* Adjusted padding */
+  height: 50px;         /* Reduced height */
+  font-size: 1.1rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+}
+
+.custom-file-input,
+.form-group select,
+.custom-skills-input,
+.selected-skills,
+.skills-select {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button[type="submit"] {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.form-group input,
+.form-group select,
+.skills-select {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to right, rgba(147, 51, 234, 0.05), rgba(147, 51, 234, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: inset 0 0 10px rgba(147, 51, 234, 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.skills-select:focus {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow), inset 0 0 15px rgba(147, 51, 234, 0.2);
+  outline: none;
+}
+
+.skills-select {
+  height: auto;
+  padding: 1rem;
+}
+
+.selected-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  background-color: var(--input-bg);
+  border-radius: 12px;
+  min-height: 60px;
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(147, 51, 234, 0.2));
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 20px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.remove-skill {
+  background: transparent;
+  color: var(--primary);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.remove-skill:hover {
+  color: var(--foreground);
+  transform: scale(1.2);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(121, 40, 202, 0.3));
+  border: 1px solid var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  text-shadow: 0 0 5px rgba(147, 51, 234, 0.5);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary-purple));
+  color: var(--foreground);
+  box-shadow: var(--intense-glow);
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff4444;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Loading animation enhancement */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loading div {
+  border: 3px solid var(--primary);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .resume-analyzer {
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  .resume-analyzer h1 {
+    font-size: 2rem;
+  }
+}
+
+.upload-icon {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.file-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--primary);
+  font-size: 1.2rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem; /* Increased left padding to accommodate icon */
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--foreground);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(147, 51, 234, 0.2));
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button:hover {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.form-group input[type="file"]::file-selector-button {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(147, 51, 234, 0.2));
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.form-group input[type="file"]:hover {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+}
+
+.custom-file-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.file-input-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--input-bg);
+  color: var(--foreground);
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-button:hover {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+
+.upload-cloud-icon {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.file-name {
+  background: var(--card-bg);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  word-break: break-all;
+}
+
+.hidden-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-group select:hover,
+.form-group input:hover,
+.custom-file-input:hover {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow), inset 0 0 15px rgba(147, 51, 234, 0.2);
+  transform: translateY(-1px);
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: var(--primary-glow);
+  box-shadow: var(--intense-glow), inset 0 0 20px rgba(147, 51, 234, 0.3);
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+    text-shadow: 0 0 10px var(--primary);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: 0 0 5px var(--primary-glow);
+  }
+}
+
+/* Custom Skills Input */
+.custom-skills-input {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.skill-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--foreground);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  transition: all 0.3s ease;
+}
+
+.skill-input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+  outline: none;
+}
+
+.add-skill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  color: var(--background);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-skill-btn:hover:not(:disabled) {
+  background: var(--primary-glow);
+  transform: translateY(-2px);
+  box-shadow: var(--neon-glow);
+}
+
+.add-skill-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.custom-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.skill-tag.custom {
+  background: linear-gradient(135deg, 
+    rgba(147, 51, 234, 0.1), 
+    rgba(79, 70, 229, 0.1)
+  );
+  border: 1px solid var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--primary);
+  animation: fadeIn 0.3s ease;
+}
+
+.skill-tag.custom .remove-skill {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.skill-tag.custom .remove-skill:hover {
+  color: var(--error);
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-skills-input {
+    flex-direction: column;
+  }
+  
+  .add-skill-btn {
+    width: 100%;
+  }
+}
+
+/* Enhanced Select Styling */
+select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--primary) 50%),
+                    linear-gradient(135deg, var(--primary) 50%, transparent 50%);
+  background-position: calc(100% - 20px) center,
+                      calc(100% - 15px) center;
+  background-size: 5px 5px,
+                  5px 5px;
+  background-repeat: no-repeat;
+}
+
+.form-group select,
+.skills-select {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--foreground);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 10px rgba(147, 51, 234, 0.1);
+  
+  /* Enhance dropdown appearance */
+  background-image: 
+    linear-gradient(45deg, transparent 50%, var(--primary) 50%),
+    linear-gradient(135deg, var(--primary) 50%, transparent 50%),
+    linear-gradient(to right, rgba(147, 51, 234, 0.05), rgba(147, 51, 234, 0.1));
+  background-position: 
+    calc(100% - 20px) center,
+    calc(100% - 15px) center,
+    0 0;
+  background-size: 
+    5px 5px,
+    5px 5px,
+    100% 100%;
+  background-repeat: no-repeat;
+}
+
+.form-group select option,
+.skills-select option {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 1rem;
+}
+
+.form-group select:hover,
+.skills-select:hover {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-1px);
+}
+
+.form-group select:focus,
+.skills-select:focus {
+  border-color: var(--primary-glow);
+  box-shadow: var(--intense-glow), inset 0 0 20px rgba(147, 51, 234, 0.3);
+  outline: none;
+}
+
+/* Style for disabled options */
+.form-group select option:disabled,
+.skills-select option:disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Enhanced Select and Options Styling */
+.form-group select,
+.skills-select {
+  /* Existing styles */
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    var(--input-bg) 0%,
+    rgba(21, 18, 26, 0.95) 100%
+  );
+}
+
+/* Dropdown options container */
+.form-group select option,
+.skills-select option {
+  background-color: rgba(11, 0, 20, 0.95);
+  color: var(--foreground);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+/* Hover state for options */
+.form-group select option:hover,
+.skills-select option:hover {
+  background: linear-gradient(
+    90deg,
+    var(--input-bg) 0%,
+    rgba(147, 51, 234, 0.2) 100%
+  );
+  cursor: pointer;
+}
+
+/* Selected option state */
+.form-group select option:checked,
+.skills-select option:checked {
+  background: linear-gradient(
+    90deg,
+    rgba(147, 51, 234, 0.3) 0%,
+    rgba(147, 51, 234, 0.1) 100%
+  );
+  color: var(--primary-glow);
+  font-weight: 500;
+}
+
+/* First option (placeholder) styling */
+.form-group select option:first-child,
+.skills-select option:first-child {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* Custom scrollbar for dropdown */
+.form-group select,
+.skills-select {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--input-bg);
+}
+
+/* Webkit scrollbar styling */
+.form-group select::-webkit-scrollbar,
+.skills-select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-group select::-webkit-scrollbar-track,
+.skills-select::-webkit-scrollbar-track {
+  background: var(--input-bg);
+  border-radius: 4px;
+}
+
+.form-group select::-webkit-scrollbar-thumb,
+.skills-select::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+  border: 2px solid var(--input-bg);
+}
+
+.form-group select::-webkit-scrollbar-thumb:hover,
+.skills-select::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-glow);
+}
+
+/* Enhanced focus and hover states */
+.form-group select:focus,
+.skills-select:focus {
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 0 1px var(--primary-glow),
+              var(--intense-glow),
+              inset 0 0 20px rgba(147, 51, 234, 0.3);
+  outline: none;
+}
+
+.form-group select:hover,
+.skills-select:hover {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-1px);
+}
+
+/* Update form elements for better contrast with neural background */
+.form-group input,
+.form-group select,
+.skills-select {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  min-height: 60px;
+}
+
+.file-input-button {
+  padding: 3rem;
+  min-height: 120px;
+}
+
+.custom-skills-input {
+  height: 60px;
+}
+
+.skill-input {
+  padding: 1.5rem;
+  height: 60px;
+  font-size: 1.1rem;
+}
+
+.add-skill-btn {
+  padding: 1.5rem;
+  min-width: 60px;
+  height: 60px;
+}
+
+button[type="submit"] {
+  padding: 1.8rem;
+  font-size: 1.2rem;
+  min-height: 70px;
+}
+
+/* Update select elements specific styling */
+.form-group select,
+.skills-select {
+  height: 60px;
+  background-position: 
+    calc(100% - 25px) center,
+    calc(100% - 20px) center,
+    0 0;
+  background-size: 
+    6px 6px,
+    6px 6px,
+    100% 100%;
+}
