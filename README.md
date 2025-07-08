@@ -145,10 +145,12 @@ npm start
 ### Running Tests
 ```bash
 # Backend tests
+cd F4F
 cd backend
 python -m pytest
 
 # Frontend tests
+cd F4F
 cd frontend
 npm test
 ```
@@ -165,9 +167,7 @@ npm test
 5. Create Pull Request
 
 
-## 📞 Support
-- GitHub Issues: [Create Issue](https://github.com/yourusername/fit4hire/issues)
-- Email: support@fit4hire.com
+
 
 ---
 Made with ❤️ by Team Fit4Hire
