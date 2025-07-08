@@ -1,0 +1,330 @@
+:root {
+  --primary: #9333EA;
+  --primary-glow: #A855F7;
+  --secondary-purple: #7928CA;
+  --background: #036c54;
+  --foreground: #ffffff;
+  --input-bg: rgba(26, 22, 37, 0.7);
+  --card-bg: rgba(21, 18, 26, 0.85);
+  --border-color: rgba(147, 51, 234, 0.3);
+  --neon-glow: 0 0 15px rgba(147, 51, 234, 0.4);
+  --intense-glow: 0 0 20px rgba(147, 51, 234, 0.6);
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(147, 51, 234, 0.08) 2%, transparent 6%),
+    radial-gradient(circle at 75% 44%, rgba(147, 51, 234, 0.07) 2%, transparent 6%),
+    radial-gradient(circle at 46% 67%, rgba(147, 51, 234, 0.06) 2%, transparent 6%);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  animation: fadeIn 0.6s ease-out;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--primary),
+    transparent
+  );
+  z-index: 1;
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo h2 {
+  color: var(--primary);
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(147, 51, 234, 0.6);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.auth-header h1 {
+  color: var(--foreground);
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.auth-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group label {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1.25rem 1.25rem 1.25rem 3rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  color: var(--foreground);
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.5rem 0.5rem 0;
+}
+
+.forgot-password {
+  color: var(--primary-glow);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.auth-button {
+  background: linear-gradient(135deg, var(--primary), var(--secondary-purple));
+  color: white;
+  border: none;
+  padding: 1.25rem;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.auth-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--intense-glow), 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.auth-button:active {
+  transform: translateY(-1px);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-link {
+  color: var(--primary-glow);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.auth-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.auth-error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff4444;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 1.5rem;
+  }
+  
+  .auth-card {
+    padding: 2rem;
+  }
+  
+  .auth-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .auth-logo h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1rem;
+  }
+  
+  .auth-card {
+    padding: 1.5rem;
+  }
+  
+  .form-group input {
+    padding: 1rem 1rem 1rem 2.75rem;
+  }
+  
+  .auth-button {
+    padding: 1rem;
+  }
+}
+
+/* Add these styles to your Auth.css file to ensure proper navbar alignment */
+
+/* Navbar alignment for auth pages - updated */
+.auth-page .navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.auth-page .navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.auth-page .navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.auth-page .auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+.auth-page .login-button,
+.auth-page .signup-button {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.auth-page .navbar-links a {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  margin: 0;
+}
