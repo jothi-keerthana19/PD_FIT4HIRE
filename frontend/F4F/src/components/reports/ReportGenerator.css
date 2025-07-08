@@ -1,0 +1,343 @@
+:root {
+  --background: #036c54;          /* Deep black with slight purple tint */
+  --foreground: #ffffff;          /* Pure white text */
+  --primary: #9333EA;            /* Main purple */
+  --primary-glow: #A855F7;       /* Lighter purple for glow */
+  --secondary-purple: #7928CA;    /* Darker purple for depth */
+  --input-bg: #1A1625;           /* Dark purple-black for inputs */
+  --card-bg: #15121A;            /* Slightly lighter background for cards */
+  --border-color: rgba(147, 51, 234, 0.3);
+  --neon-glow: 0 0 15px rgba(147, 51, 234, 0.4);
+  --intense-glow: 0 0 20px rgba(147, 51, 234, 0.6);
+}
+
+/* Enhanced neural background with more pronounced effects */
+.report-generator-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(147, 51, 234, 0.08) 2%, transparent 6%),
+    radial-gradient(circle at 75% 44%, rgba(147, 51, 234, 0.07) 2%, transparent 6%),
+    radial-gradient(circle at 46% 67%, rgba(147, 51, 234, 0.06) 2%, transparent 6%),
+    radial-gradient(circle at 33% 89%, rgba(147, 51, 234, 0.07) 2%, transparent 6%),
+    radial-gradient(circle at 80% 15%, rgba(147, 51, 234, 0.06) 2%, transparent 6%);
+  background-size: 250px 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(147, 51, 234, 0.2);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Enhanced neural network connections effect */
+.report-generator-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 98.5%, rgba(147, 51, 234, 0.15) 1.5%),
+    linear-gradient(0deg, transparent 98.5%, rgba(147, 51, 234, 0.15) 1.5%);
+  background-size: 35px 35px;
+  pointer-events: none;
+  z-index: -1;
+  animation: pulseGrid 8s infinite alternate;
+}
+
+/* Add animated neural nodes */
+.report-generator-container::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--primary),
+    transparent
+  );
+  animation: scan 3s linear infinite;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+}
+
+@keyframes pulseGrid {
+  0% {
+    opacity: 0.5;
+    background-size: 35px 35px;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.5;
+    background-size: 40px 40px;
+  }
+}
+
+/* Add floating neural particles */
+.report-form::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(147, 51, 234, 0.4) 0.1%, transparent 0.5%),
+    radial-gradient(circle at 20% 30%, rgba(147, 51, 234, 0.3) 0.1%, transparent 0.5%),
+    radial-gradient(circle at 30% 70%, rgba(147, 51, 234, 0.4) 0.1%, transparent 0.5%),
+    radial-gradient(circle at 70% 40%, rgba(147, 51, 234, 0.3) 0.1%, transparent 0.5%),
+    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.4) 0.1%, transparent 0.5%),
+    radial-gradient(circle at 90% 10%, rgba(147, 51, 234, 0.3) 0.1%, transparent 0.5%);
+  filter: blur(1px);
+  opacity: 0.7;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatParticles 15s infinite linear;
+}
+
+@keyframes floatParticles {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Removing the absolute positioning from the header button */
+.report-header {
+  display: flex;
+  justify-content: center; /* Center the heading */
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.report-header h2 {
+  color: var(--primary);
+  margin: 0;
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Creating a new bottom-positioned back button */
+.back-button {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(147, 51, 234, 0.2));
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 3rem auto 0; /* Add top margin and center horizontally */
+  position: relative; /* Remove absolute positioning */
+  z-index: 2;
+}
+
+/* Create a container for the buttons at the bottom with increased spacing */
+.report-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem; /* Increased from 1.5rem to 3rem for more space between buttons */
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* Style for both buttons to be consistent */
+.back-button,
+.generate-report-btn {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(121, 40, 202, 0.3));
+  color: var(--primary-glow);
+  border: 1px solid var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(147, 51, 234, 0.5);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 200px;
+  margin: 0; /* Remove margin to let the container handle spacing */
+}
+
+/* Hover effects for both buttons */
+.back-button:hover,
+.generate-report-btn:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary-purple));
+  color: var(--foreground);
+  box-shadow: var(--intense-glow);
+  transform: translateY(-2px);
+}
+
+/* Specific adjustments for the generate button */
+.generate-report-btn {
+  max-width: none; /* Remove max-width constraint */
+  align-self: auto; /* Let flexbox handle alignment */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .report-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .back-button,
+  .generate-report-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+.back-button:hover {
+  background: var(--primary);
+  color: var(--background);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+
+.report-generator-container p {
+  color: var(--foreground);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  text-align: center; /* Center align the text */
+  max-width: 800px; /* Limit width for better readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group textarea {
+  padding: 1.5rem;
+  background: linear-gradient(to right, rgba(147, 51, 234, 0.05), rgba(147, 51, 234, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--foreground);
+  font-family: inherit;
+  resize: vertical;
+  min-height: 150px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(147, 51, 234, 0.1);
+}
+
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow), inset 0 0 15px rgba(147, 51, 234, 0.2);
+  outline: none;
+}
+
+.generate-report-btn {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(121, 40, 202, 0.3));
+  color: var(--primary-glow);
+  border: 1px solid var(--primary);
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  text-shadow: 0 0 5px rgba(147, 51, 234, 0.5);
+  align-self: center;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.generate-report-btn:hover {
+  background: linear-gradient(135deg, var(--primary), var(--secondary-purple));
+  color: var(--foreground);
+  box-shadow: var(--intense-glow);
+  transform: translateY(-2px);
+}
+
+.generate-report-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff4444;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .report-generator-container {
+    margin: 1rem;
+    padding: 2rem;
+  }
+  
+  .report-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .generate-report-btn {
+    padding: 1rem 2rem;
+  }
+}

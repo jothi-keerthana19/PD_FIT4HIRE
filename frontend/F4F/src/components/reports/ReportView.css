@@ -1,0 +1,201 @@
+.report-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #2A0A4F; /* Dark purple background */
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+  color: #F8F8F2; /* Soft white text */
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #3D1E6D; /* Slightly lighter purple */
+}
+
+.report-header h1 {
+  color: #00FFFF; /* Neon cyan */
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.report-date {
+  color: #D1B3FF; /* Light lavender */
+  font-style: italic;
+}
+
+.report-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #3D1E6D;
+}
+
+.report-section h2 {
+  color: #00FFFF; /* Neon cyan */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #00FFFF;
+  display: inline-block;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.match-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1rem;
+  background-color: #3D1E6D; /* Lighter purple */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+  border: 2px solid #00FFFF;
+}
+
+.score-circle span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00FFFF; /* Neon cyan */
+}
+
+.score-description {
+  font-weight: 600;
+  color: #D1B3FF; /* Light lavender */
+}
+
+.skills-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.skills-matched, .skills-missing {
+  background-color: #3D1E6D; /* Lighter purple background */
+  padding: 1rem;
+  border-radius: 8px;
+  color: #F8F8F2; /* Soft white text */
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.skills-matched h3 {
+  color: #00FFFF; /* Neon cyan */
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+.skills-missing h3 {
+  color: #FF4081; /* Vibrant magenta */
+  text-shadow: 0 0 5px rgba(255, 64, 129, 0.4);
+}
+
+.recommendation-section {
+  background-color: #3D1E6D; /* Lighter purple */
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-bottom: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.recommendations {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.recommendation-item {
+  background-color: #2A0A4F; /* Dark purple */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.recommendation-item h3 {
+  color: #00FFFF; /* Neon cyan */
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.improvement-list li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #F8F8F2; /* Soft white */
+}
+
+.improvement-list li:before {
+  content: "•";
+  color: #FF4081; /* Vibrant magenta */
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.report-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.action-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #3367d6;
+}
+
+.loading, .error-message, .not-found {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+  color: #c62828;
+  background-color: #ffebee;
+}
+
+.not-found {
+  color: #555;
+}
+
+/* Print styles */
+@media print {
+  .report-container {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .report-actions {
+    display: none;
+  }
+}
