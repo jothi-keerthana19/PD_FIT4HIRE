@@ -1,0 +1,15 @@
+# Ignore virtual environments
+F4F/backend/venv/
+F4F/prod_env/
+venv/
+prod_env/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore binaries
+*.exe
+*.dll
+*.lib
+*.zip
